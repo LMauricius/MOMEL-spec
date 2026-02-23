@@ -17,10 +17,10 @@ MEML has everything you truly need for configuration and nothing more:
 - Numbers (Integer and Floating point)
 - Strings (normal and raw)
 - Lists
-- Objects
+- Dictionaries
 - Tuples
 - Literals (identifiers for keywords, referencing external variables, type notations, or any custom use-case)
-- Adding values to existing lists and objects
+- Adding values to existing dictionaries
 - Binary, octal and hexadecimal numbers
 - Scientific notation
 - SI and Custom units

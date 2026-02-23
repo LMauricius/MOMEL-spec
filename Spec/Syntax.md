@@ -2,6 +2,15 @@
 
 This is a simple specification for the MEML configuration language.
 
+# Comments
+Comments start with a `#` (outside of strings).
+The comment spans until the end of the line and is ignored as a semantic part of the file.
+Example:
+```meml
+# This is a comment: the value describes the last achieved score
+Score: 300
+```
+
 # Values
 There are 5 types of values: dictionaries, lists, numbers, strings and keywords.
 
@@ -28,6 +37,40 @@ so if you *really* need an identifier to start or end with space
 use the escape sequence `\_`.
 
 The file itself is also a dictionary, just not enclosed by `{ }`.
+
+If a key appears multiple times, and its value only contains a dictionary,
+the two dictionaries are merged.
+The same applies for the keys appearing in both dictionaries.
+In other cases, multiple appearences of a key is an error.
+Example:
+```meml
+User: {
+    Name: "John"
+    Score: 300
+    Status: {
+        Attempts: 3
+    }
+}
+User: {
+    Quote: "I'm the best!"
+    Status: {
+        Playtime: 5h 47min
+    }
+}
+```
+...is the same as:
+```meml
+User: {
+    Name: "John"
+    Score: 300
+    Quote: "I'm the best!"
+    Status: {
+        Attempts: 3
+        Playtime: 5h 47min
+    }
+}
+```
+
 
 ## Lists
 Lists are series of **items** enclosed by `[ ]`.
@@ -69,7 +112,7 @@ Binary sequence: 0b10_1100_0101
 ```
 
 Exponents in scientific notation are always written in decimal,
-but use modify the number's significand in it's used base.
+but modify the number's significand in it's used base.
 ```meml
 Big binary: 0b1_+9 # Equal to 0b10_0000_0000
 ```
@@ -183,6 +226,9 @@ They start with a backslash `\` and can be followed by:
 - `x` and 2 hex digits - The byte of the specified hexadecimal value
 - `u` and 4 hex digits - Unicode code point of the specified hexadecimal value below 0x10000 (65536)
 - `U` and 8 hex digits - Unicode code point of the specified hexadecimal value
+
+Note that some special characters don't currently have a meaning,
+but are still required to be escaped. Consider them reserved for future use.
 
 While some of these characters are supported in some places like in identifiers,
 they can still be written using escape sequences.
