@@ -128,7 +128,10 @@ Distance: 5km
 ```
 
 ## Strings
-Strings are enclosed by single or double quotes.
+Strings are textual values. They can contain any sequence of characters.
+
+### Normal strings
+Normal strings are enclosed by single or double quotes.
 Example:
 ```momel
 Name: "John Smith"
@@ -142,12 +145,26 @@ Example:
 Line: "John said \"Hello world!\""
 ```
 
+### Simple strings
+Simple strings are still pieces of text, but not enclosed in quotes.
+They are often used for programmer-friendly identifiers,
+to denote the format of values, or just to simplify writing of one-worded text.
+They start with a non-digit and can contain any character except the special ones used in values,
+`( ) [ ] { } " '` or newlines and spaces. For those characters you can use the escape sequence `\`.
+Example:
+```momel
+Blood type: AB+
+```
+
+### Raw strings
 Raw strings can be multiline. They are written with the quote character followed by a new line.
 Each line of the string needs to start indented by the same number of whitespaces as
 characters before the opening quote, plus an additional space.
 The closing quote is aligned to the opening quote, without an additional space.
 All lines except the ones with opening and closing quotes are separate lines of the string,
-ending with a newline character.
+separated by a newline character.
+Remember that the last line doesn't end with a newline character,
+unless of course an empty line is written before the closing quote.
 The lines are interpreted literally,
 with quotes and `\` characters just being normal characters of the string.
 Example:
@@ -168,16 +185,6 @@ Comment: \
      Enjoyed the scenic route.
      Planning to bring friends next time.
     "
-```
-
-## Keywords
-Keywords are similar to strings, but not enclosed in quotes. They are still a separate type,
-and usually used to denote the format of values, or to simplify writing of one-worded text.
-They start with a non-digit and can contain any character except the special ones used in values,
-`( ) [ ] { } " '` or newlines and spaces. For those characters you can use the escape sequence `\`.
-Example:
-```momel
-Blood type: AB+
 ```
 
 ## Tuples

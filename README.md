@@ -15,11 +15,10 @@ MOMEL has everything you truly need for configuration and nothing more:
 - `# Comments`
 - Name-value pairs
 - Numbers (Integer and Floating point)
-- Strings (normal and raw)
+- Strings (simple, normal and raw)
 - Lists
 - Dictionaries
 - Tuples
-- Keywords (identifiers for keywords, referencing external variables, type notations, or any custom use-case)
 - Adding values to existing dictionaries
 - Binary, octal and hexadecimal numbers
 - Scientific notation
