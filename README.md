@@ -1,6 +1,6 @@
-# What is MEML?
+# What is MOMEL?
 
-Mauricio's Expandable Minimal Language.
+Mauricio's Obvious Minimal Expandable Language.
 
 It is a human friendly language for writing configuration files.
 Inspired by TOML, with a more conscise, minimal feature set that allows for
@@ -11,7 +11,7 @@ and the meaning is always clear as day.
 
 # Features
 
-MEML has everything you truly need for configuration and nothing more:
+MOMEL has everything you truly need for configuration and nothing more:
 - `# Comments`
 - Name-value pairs
 - Numbers (Integer and Floating point)
@@ -19,7 +19,7 @@ MEML has everything you truly need for configuration and nothing more:
 - Lists
 - Dictionaries
 - Tuples
-- Literals (identifiers for keywords, referencing external variables, type notations, or any custom use-case)
+- Keywords (identifiers for keywords, referencing external variables, type notations, or any custom use-case)
 - Adding values to existing dictionaries
 - Binary, octal and hexadecimal numbers
 - Scientific notation
@@ -30,7 +30,7 @@ MEML has everything you truly need for configuration and nothing more:
 
 This is an example of a record about users:
 
-```meml
+```momel
 # This file contains some data...
 # Edit it as needed!
 
